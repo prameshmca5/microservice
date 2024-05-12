@@ -1,0 +1,1 @@
+ALTER TABLE t_orders ADD status varchar(10);
