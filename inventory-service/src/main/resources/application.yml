@@ -12,3 +12,12 @@ spring:
       ddl-auto: update
 server:
   port: 8084
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api/docs
+    urls[0]:
+      url: /aggregate/inventory-service/v3/api-doc
+      name: Inventory service

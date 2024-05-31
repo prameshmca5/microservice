@@ -1,5 +1,4 @@
 
-
 spring:
   application:
     name: api-gateway
@@ -7,20 +6,17 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8181/realms/spring-microserice-realm
+          issuer-uri: http://localhost:8181/realms/spring-microserives-security-realm
+          #jwk-set-uri: http://localhost:8181/realms/master
+
+
 server:
   port: 9000
+  forward-headers-strategy: framework
 
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
-    urls[0]:
-      url: /aggregate/order-service/v3/api-doc
-      name: order_service_swagger
-    urls[1]:
-      url: /aggregate/inventory-service/v3/api-doc
-      name: inventory_service_swagger
-    urls[2]:
-      url: /aggregate/product-service/v3/api-doc
-      name: product_service_swagger
+  api-docs:
+    path: /api/docs
 
