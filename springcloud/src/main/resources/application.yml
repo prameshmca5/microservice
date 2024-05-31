@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: springcloud
+
+server:
+  port: 9000
