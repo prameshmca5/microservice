@@ -22,3 +22,32 @@ springdoc:
     urls[0]:
       url: /aggregate/order-service/v3/api-doc
       name: Order service
+
+
+management:
+  health:
+    circuit-breakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: All
+#Resiliance
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state: 3s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        sliding-window-type: COUNT_BASED
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 5s
